@@ -5,8 +5,9 @@ name: Assemble Android Release
 on:
   push:
     tags: [ v*, r*, a* ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, develop ]
 
   workflow_dispatch:
 
@@ -16,20 +17,28 @@ env:
   APP_ID: ${{secrets.APP_ID}}
   # 应用名称
   APP_NAME: Taro
+  # 应用icon
+  APP_ICON: ic_launcher
+  # 应用圆角icon
+  APP_ROUND_ICON: ic_launcher_round
+  # 应用支持的CPU架构
+  APP_ABI_FILTERS: armeabi-v7a, arm64-v8a
   # 打包类型
   BUILD_TYPE: release
   # 版本名称
-  VERSION_NAME: 1.8.2
+  VERSION_NAME: 1.0.0
   # 版本号
-  VERSION_CODE: 18200
+  VERSION_CODE: 10
   # 密钥库文件
-  KEYSTORE_FILE: release.keystore
+  KEYSTORE_FILE: my-release-key.keystore
   # 密钥库口令
   KEYSTORE_PASSWORD: ${{secrets.RELEASE_KEYSTORE_PASSWORD}}
   # 密钥库别名
-  KEYSTORE_KEY_ALIAS: android
+  KEYSTORE_KEY_ALIAS: my-key-alias
   # 密钥库别名口令
   KEYSTORE_KEY_PASSWORD: ${{secrets.RELEASE_KEYSTORE_PASSWORD}}
+  # NODE版本兼容
+  # NODE_OPTIONS: --openssl-legacy-provider
 
 # 工作流作业
 jobs:
