@@ -143,7 +143,7 @@ android {
     }
 
     defaultConfig {
-        applicationId app_id
+        applicationId "com.tarodemo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 18200
