@@ -5,6 +5,7 @@ name: Assemble Ios Release
 on:
   push:
     tags: [ v*, r*, i* ]
+    branches: [ master, develop ]
   pull_request:
     branches: [ master ]
 
@@ -13,14 +14,16 @@ on:
 # 工作流环境变量
 env:
   # 应用的application_id
-  APP_ID: ${{secrets.APP_ID}}
+  APP_ID: com.yu.yuduoduo
   APP_NAME: Taro
   VERSION_NUMBER: 1.8.2
   BUILD_NUMBER: 1.8.2.1
   BUILD_TYPE: release
-  TEAM_ID: ${{secrets.TEAM_ID}}
-  PROVISIONING_PROFILE_SPECIFIER: ${{secrets.RELEASE_PROVISIONING_PROFILE_SPECIFIER}}
-  CODE_SIGN_IDENTITY: Apple Distribution
+  TEAM_ID: 2Z3KMMGQJ6
+  # TEAM_ID: ${{secrets.TEAM_ID}}
+  # PROVISIONING_PROFILE_SPECIFIER: yuduoduo.mobileprovision
+  PROVISIONING_PROFILE_SPECIFIER: yuduoduo.mobileprovision
+  CODE_SIGN_IDENTITY: iPhone Developer
   SIGNING_CERTIFICATE_P12_DATA: ${{secrets.RELEASE_SIGNING_CERTIFICATE_P12_DATA}}
   SIGNING_CERTIFICATE_PASSWORD: ${{secrets.RELEASE_SIGNING_CERTIFICATE_PASSWORD}}
   PROVISIONING_PROFILE_DATA: ${{secrets.RELEASE_PROVISIONING_PROFILE_DATA}}
