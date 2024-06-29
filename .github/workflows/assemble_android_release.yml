@@ -5,9 +5,9 @@ name: Assemble Android Release
 on:
   push:
     tags: [ v*, r*, a* ]
-    branches: [ master, develop ]
+    # branches: [ master, develop ]
   pull_request:
-    branches: [ master, develop ]
+    # branches: [ master, develop ]
 
   workflow_dispatch:
 
