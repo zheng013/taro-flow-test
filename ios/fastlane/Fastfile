@@ -58,5 +58,28 @@ platform :ios do
 			workspace: "taroDemo.xcworkspace",
 		)
 	end
+
+	desc "test"
+    lane :adhoc_build do
+	    # 使用 Gym 打包应用
+	    build_app(
+	      scheme: "com.yu.yuduoduo", # 替换为你的scheme名称
+	      workspace: "taroDemo.xcworkspace", # 如果你的项目使用workspace，则填写此处
+	      configuration: "Release", # 打包配置
+	      export_method: "ad-hoc", # 打包方式为Ad-Hoc
+	      output_directory: "./build", # 打包输出目录
+	      output_name: "taroDemo.ipa", # 打包输出文件名
+	      export_options: {
+	    	provisioningProfiles: {
+	    	  "com.yu.yuduoduo" => "certs/yuduoduo.mobileprovision" # 描述文件路径
+	    	}
+	      },
+	      cert: "certs/yuduoduo.p12", # 证书路径
+	      cert_password: "123456", # 证书密码
+	      sigh: {
+	    	download_path: "./fastlane/certs" # sigh下载描述文件存放的路径
+	      }
+	    )
+      end
 	
 end
