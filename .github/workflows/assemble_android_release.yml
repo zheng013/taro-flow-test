@@ -5,7 +5,7 @@ name: Assemble Android Release
 on:
   push:
     tags: [ v*, r*, a* ]
-    # branches: [ master, develop ]
+    branches: [ test ]
   pull_request:
     # branches: [ master, develop ]
 
